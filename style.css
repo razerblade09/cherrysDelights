@@ -1,0 +1,282 @@
+/* Basic CSS for the Website */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fffaf0;
+    color: #4b2c20;
+}
+
+/* Header Section */
+header {
+    background-color: #ffccd5;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Added for responsiveness */
+}
+
+header img {
+    height: 50px;
+    max-width: 100%; /* Ensure logo scales on small screens */
+}
+
+/* Navigation Bar */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Added for responsiveness */
+    justify-content: center; /* Center align the navigation items */
+}
+
+nav ul li {
+    margin: 0 10px; /* Spacing between navigation items */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #4b2c20;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #fff;
+    background-color: #8b0000;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 10vh 5vw;
+    background: url('hero1.jpg') no-repeat center center/cover;
+    color: #ffccd5;
+}
+
+.hero h1 {
+    font-size: 3em;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+/* Section Styling */
+.section {
+    padding: 20px;
+    text-align: center;
+}
+
+.section p {
+    margin: 0 auto;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+/* Product Cards */
+.products {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Spacing between cards */
+    justify-content: center; /* Center the grid items */
+    margin: 0 auto; /* Center the entire container */
+    max-width: 1200px; /* Add a maximum width for consistency */
+    padding: 20px; /* Add padding for spacing */
+}
+
+
+.product {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product img:hover {
+    transform: scale(1.1); /* Zoom-in effect */
+}
+
+
+/* Footer Section */
+footer {
+    background-color: #4b2c20;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 767px) {
+    /* Mobile and Tablet */
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    nav ul {
+        flex-wrap: nowrap; /* Prevent wrapping */
+        justify-content: space-evenly; /* Spread items evenly */
+    }
+
+    .products {
+        flex-direction: column; /* Stack product items vertically */
+        align-items: center;
+    }
+
+    .product { 
+        width: 90%; /* Make products take full width on smaller screens */
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Mobile Phones */
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    nav ul {
+        flex-wrap: nowrap; /* Keep menu items in a single row */
+        justify-content: space-between; /* Ensure proper spacing */
+    }
+
+    nav ul li a {
+        font-size: 0.9em; /* Adjust font size for smaller screens */
+        padding: 5px; /* Compact padding */
+    }
+
+    .products {
+        flex-direction: column; /* Stack product items vertically */
+        
+    }
+
+    .product {
+        width: 90%; /* Ensure products take full width */
+        
+    }
+
+    footer {
+        font-size: 0.9em; /* Adjust footer text size for smaller screens */
+    }
+}
+
+/* Burger Menu Styling */
+.burger {
+    display: none; /* Default: hidden for larger screens */
+    position: absolute; /* Position it relative to the viewport */
+    margin-top: 10px;
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.burger span {
+    display: block;
+    height: 3px;
+    background-color: #4b2c20;
+    border-radius: 3px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Show the burger menu on smaller screens */
+@media (max-width: 767px) {
+    .burger {
+        display: flex; /* Display burger menu for smaller screens */
+    }
+
+    #nav-menu {
+        display: none; /* Hide nav menu by default */
+        flex-direction: column;
+        background-color: #ffccd5;
+        position: absolute;
+        top: 60px; /* Adjust position below the burger menu */
+        right: 20px; /* Align with the burger menu */
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #nav-menu.active {
+        display: flex; /* Show nav menu when burger menu is clicked */
+    }
+}
+
+
+
+/* Hamburger menu button */
+.burger-menu {
+    display: none; /* Hidden by default for larger screens */
+    position: absolute; /* Position at the top-right corner */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+/*Hamburger menu to right side*/
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #4b2c20;
+    border-radius: 5px;
+}
+
+/* Show hamburger menu on smaller screens */
+@media (max-width: 767px) {
+    .burger-menu {
+        display: flex;
+    }
+
+    /* Hide desktop navigation menu */
+    nav ul {
+        display: none;
+    }
+}
+
+/* Style the navigation menu to position it properly when visible */
+.nav-menu {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    background-color: #ffccd5;
+    position: absolute;
+    top: 60px; /* Below the burger menu */
+    right: 20px; /* Align with the burger menu */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.nav-menu.active {
+    display: flex; /* Show menu when active */
+}
